@@ -1,6 +1,6 @@
 # googleanalyticsreporting
 
-##Required
+## Required
 
 1. Symfony 4.4
 1. PHP 7.2
