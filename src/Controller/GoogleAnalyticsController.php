@@ -20,22 +20,21 @@ class GoogleAnalyticsController extends AbstractController
     {
         $this->googleAnalyticsService = $googleAnalyticsService;
     }
+
     /**
      * @Route("/", name="reportting")
      */
     public function index(): Response
     {
         if ($this->googleAnalyticsService->isLoggedIn() === true) {
-            $accounts = $this
-                ->googleAnalyticsService
-                ->analytics
-                ->management_accounts
-                ->listManagementAccounts();
 
+            $results = $this->googleAnalyticsService->getChartResults('215737497', 'ga:pageviews,ga:users,ga:sessions');
+            $rapport = $this->googleAnalyticsService->buildChartArray($results);
             //JSON Response
             return $this->json([
                 'message' => 'Google Analytics reporting',
-                'accounts number' => count($accounts->getItems())
+                'profile ID' => "215737497",
+                'rapport' => $rapport
             ]);
         } else {
             $url = $this->googleAnalyticsService->getLoginUrl();

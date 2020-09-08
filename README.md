@@ -21,3 +21,35 @@
 
 `GOOGLE_CLIENT_SCOPES=https://www.googleapis.com/auth/analytics.readonly`
 
+## Example JSON Rapport 
+
+`{
+ message: "Google Analytics reporting",
+ profile ID: "215737497",
+ rapport: [
+             [
+                 "Date",
+                 "Pages Vues",
+                 "Visiteurs",
+                 "Visites"
+             ],
+             [
+                 "31/08/2020",
+                 0,
+                 0,
+                 0
+             ],
+             [
+                 "01/09/2020",
+                 1,
+                 1,
+                 1
+                 ],
+             [
+                 "02/09/2020",
+                 0,
+                 0,
+                 0
+             ],
+ }
+ `
