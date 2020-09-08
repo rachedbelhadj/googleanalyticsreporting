@@ -11,6 +11,8 @@
 
 ## access Google Account
 
+`cp env.dist .env`
+
 `GOOGLE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
 `GOOGLE_CLIENT_ID=xxxxxxx-ficldullao12lrbreltaedf87fk1tth1.apps.googleusercontent.com`
