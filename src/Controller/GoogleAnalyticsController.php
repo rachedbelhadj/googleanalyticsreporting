@@ -26,20 +26,19 @@ class GoogleAnalyticsController extends AbstractController
      */
     public function index(): Response
     {
-        if ($this->googleAnalyticsService->isLoggedIn() === true) {
-
-            $results = $this->googleAnalyticsService->getChartResults('215737497', 'ga:pageviews,ga:users,ga:sessions');
-            $rapport = $this->googleAnalyticsService->buildChartArray($results);
-            //JSON Response
-            return $this->json([
-                'message' => 'Google Analytics reporting',
-                'profile ID' => "215737497",
-                'rapport' => $rapport
-            ]);
-        } else {
+        if ($this->googleAnalyticsService->isLoggedIn() === false) {
             $url = $this->googleAnalyticsService->getLoginUrl();
             return $this->redirect($url);
         }
+
+        $results = $this->googleAnalyticsService->getChartResults('215737497', 'ga:pageviews,ga:users,ga:sessions');
+        $rapport = $this->googleAnalyticsService->buildChartArray($results);
+        //JSON Response
+        return $this->json([
+            'message' => 'Google Analytics reporting',
+            'profile ID' => "215737497",
+            'rapport' => $rapport
+        ]);
     }
 
     /**

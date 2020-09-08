@@ -57,6 +57,11 @@ class GoogleAnalyticsService
         return false;
     }
 
+    public function isAccessTokenExpired(): bool
+    {
+        return $this->client->isAccessTokenExpired();
+    }
+
     public function getAccessToken(): array
     {
         return $this->client->getAccessToken();
