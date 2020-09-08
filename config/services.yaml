@@ -11,15 +11,7 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
-    App\:
-        resource: '../src/'
-        exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
-            - '../src/Kernel.php'
-            - '../src/Tests/'
+
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -29,3 +21,17 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Controller\GoogleAnalyticsController:
+        arguments:
+            - '@Google_Client_Service'
+
+    Google_Client_Service:
+        class: App\Service\GoogleAnalyticsService
+        arguments:
+            - '@session'
+            - '@Google_Client'
+            - '%env(GOOGLE_CLIENT_ID)%'
+            - '%env(GOOGLE_CLIENT_SECRET)%'
+            - '%env(GOOGLE_API_KEY)%'
+            - '%env(GOOGLE_CLIENT_REDIRECT_URI)%'
+            - '%env(GOOGLE_CLIENT_SCOPES)%'
