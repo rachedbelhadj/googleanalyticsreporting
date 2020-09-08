@@ -8,3 +8,16 @@
 ## Bundles
 
 `require google/apiclient:^2.0`
+
+## access Google Account
+
+`GOOGLE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxx`
+
+`GOOGLE_CLIENT_ID=xxxxxxx-ficldullao12lrbreltaedf87fk1tth1.apps.googleusercontent.com`
+
+`GOOGLE_CLIENT_SECRET=xxxxxxxxxxxxx`
+
+`GOOGLE_CLIENT_REDIRECT_URI=http://localhost:8000/login`
+
+`GOOGLE_CLIENT_SCOPES=https://www.googleapis.com/auth/analytics.readonly`
+
